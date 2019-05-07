@@ -7,12 +7,19 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-    listItems = new Array();
+    listItems = [];
+
     notesSkeleton = {
-        picture: "Bild",
+        // picture: "Bild",
         title: "Titel",
         time: "Uhrzeit",
         content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora hic necessitatibus, aperiam eum quis nisi similique! Mollitia ut ipsa animi tempora obcaecati a similique accusamus dolorum, corrupti eligendi ea, neque."
     };
-    constructor() { this.listItems.push(this.notesSkeleton) };
+
+    constructor() {
+        for (var i = 0; i < 10; ++i) {
+
+            this.listItems.push(this.notesSkeleton)
+        }
+    }
 }
