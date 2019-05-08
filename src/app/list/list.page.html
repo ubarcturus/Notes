@@ -11,15 +11,16 @@
 
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let item of items">
+        <ion-item *ngFor="let listItem of listItems">
             <ion-thumbnail slot="start">
-                <ion-img [src]="item.src"></ion-img>
+                <ion-img src="/assets/shapes.svg"></ion-img>
             </ion-thumbnail>
-            <ion-icon [name]="item.icon" slot="start"></ion-icon>
-            {{item.title}}
-            <div class="item-note" slot="end">
-                {{item.note}}
-            </div>
+            <ion-label text-wrap>
+                {{listItem.title}} {{listItem.dateTime}}
+                <p>
+                    {{listItem.content}}
+                </p>
+            </ion-label>
         </ion-item>
     </ion-list>
     <!-- <div *ngIf="selectedItem" padding>

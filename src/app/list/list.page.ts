@@ -6,28 +6,17 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-    
+
     private selectedItem: any;
-    private icons = [
-        'flask',
-        'wifi',
-        'beer',
-        'football',
-        'basketball',
-        'paper-plane',
-        'american-football',
-        'boat',
-        'bluetooth',
-        'build'
-    ];
-    public items: Array < { title: string;note: string;icon: string } > = [];
+
+    public listItems: Array < { title: string;dateTime: string;content: string } > = [];
 
     constructor() {
         for (let i = 1; i < 11; i++) {
-            this.items.push({
-                title: 'Item ' + i,
-                note: 'This is item #' + i,
-                icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+            this.listItems.push({
+                title: 'Überschrift ' + i,
+                dateTime: 'Datum und Zeit',
+                content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error voluptatem, dolores explicabo aperiam facilis praesentium, deserunt, sit sed aut quod cupiditate. Porro recusandae ipsa dicta nihil voluptas neque, distinctio, iure? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum delectus, eius perferendis quam sed iure laudantium officiis. Tempore dolorum, debitis dolor itaque quis vero facilis facere quos sunt, officiis pariatur.",
             });
         }
     }
