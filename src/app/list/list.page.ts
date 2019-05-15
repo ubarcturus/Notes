@@ -24,7 +24,7 @@ export class ListPage implements OnInit {
     ngOnInit() {}
 
     // add back when alpha .4 is out
-    // navigate(item) {
-    //     this.router.navigate(['/list', JSON.stringify(item)]);
-    // }
+    /*navigate(item) {
+        this.router.navigate(['/list', JSON.stringify(item)]);
+    }*/
 }
