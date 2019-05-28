@@ -7,20 +7,23 @@ import { IonicModule } from '@ionic/angular';
 
 import { AddPage } from './add.page';
 
-const routes: Routes = [
-  {
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
+const routes: Routes = [{
     path: '',
     component: AddPage
-  }
-];
+}];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [AddPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes)
+    ],
+
+    providers: [Camera],
+
+    declarations: [AddPage]
 })
 export class AddPageModule {}

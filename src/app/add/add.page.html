@@ -11,36 +11,29 @@
 
 <ion-content>
     <ion-card>
+        <ion-card-header>
+            <ion-card-title>Neue Notiz</ion-card-title>
+        </ion-card-header>
         <!-- <ion-list> -->
         <ion-list lines="none">
             <ion-item lines="inset">
-                <ion-label>
-                    Neue Notiz
-                </ion-label>
+                <ion-input required autofocus autocapitalize autocorrect spellcheck autocomplete clearInput placeholder="Titel"></ion-input>
             </ion-item>
             <ion-item lines="inset">
-                <ion-label position="floating">Titel</ion-label>
-                <ion-input required autofocus autocapitalize autocorrect spellcheck autocomplete clearInput></ion-input>
+                <ion-input lines="inset" type="date" placeholder=""></ion-input>
+                <ion-input type="time" placeholder="Uhrzeit"></ion-input>
             </ion-item>
             <ion-item lines="inset">
-                <ion-label position="stacked">Datum</ion-label>
-                <ion-input type="date">
-                </ion-input>
+                <ion-textarea auto-grow autocapitalize autocorrect spellcheck autocomplete wrap="soft" clearInput placeholder="Notizen"></ion-textarea>
             </ion-item>
-            <ion-item lines="inset">
-                <ion-label position="stacked">Uhrzeit</ion-label>
-                <ion-input type="time">
-                </ion-input>
-            </ion-item>
-            <ion-item lines="inset">
-                <ion-label position="floating">Notiz</ion-label>
-                <ion-textarea autocapitalize autocorrect spellcheck autocomplete wrap="soft" clearInput></ion-textarea>
-            </ion-item>
-            <ion-item lines="none">
+            <ion-item lines="full">
                 <ion-thumbnail slot="start">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+                    <img src="{{ myphoto }}"  alt="testbild">
                 </ion-thumbnail>
-                <ion-button fill="outline">Bild speichern</ion-button>
+                <ion-button (click)="foto()" fill="outline">Bild hinzufügen</ion-button>
+            </ion-item>
+            <ion-item>
+                <ion-button fill="outline">Notiz speichern</ion-button>
             </ion-item>
         </ion-list>
     </ion-card>
