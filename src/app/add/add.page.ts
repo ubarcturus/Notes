@@ -9,25 +9,27 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 export class AddPage implements OnInit {
 
-	myphoto = "../../assets/icon/favicon.png";
+    myphoto = "../../assets/icon/favicon.png";
 
     ngOnInit() {}
 
     constructor(private camera: Camera) {}
 
     foto() {
-        const options: CameraOptions = { // Einstellungen für die Kamera
-            quality: 100, // Die Qualität gibt an, wie scharf das Bild ist. Bis Stufe 70 sollte man keine Änderungen wahrnehmen könne
-            destinationType: this.camera.DestinationType.FILE_URI, // Zieltyp des Bildes
-            encodingType: this.camera.EncodingType.JPEG, // Zielformat des Bildes
-            mediaType: this.camera.MediaType.PICTURE, // Ob ein Bild (PICTURE) oder ein Video (VIDEO) erstellt wird
-            saveToPhotoAlbum: true, // ob das erstellte Bild in die Gallerie gespeichert werden soll
+        const options: CameraOptions = { // Einstellungen für die Kamera: https://github.com/apache/cordova-plugin-camera#cameracameraoptions--object
+            sourceType: 1, // Quelle des Bildes (Fotogalerie, 0), (Kamera, 1), (Fotoordner, 2)
+            quality: 100, // Die Qualität gibt an, wie scharf das Bild ist. Bis Stufe 70 sollte man keine Änderungen wahrnehmen können
+            destinationType: 1, // Zieltyp des Bildes (DATA_URL, 0), (FILE_URI, 1), (NATIVE_URI, 2)
+            encodingType: 0, // Zielformat des Bildes (JPEG, 0), (PNG, 1)
+            mediaType: 2, // Nur wenn sourceType 0 oder 2: Angezeigte Dateitypen: Bild (PICTURE, 0), Video (VIDEO, 1), frei (ALLMEDIA, 2)
+            saveToPhotoAlbum: true, // ob das erstellte Bild in die Galerie gespeichert werden soll
             allowEdit: true, // ob das erstellte Bild editiert werden soll
-            targetHeight: 200, // Die Höhe des Bildes in Pixel
-            targetWidth: 200 // Die Breite des Bildes in Pixel
+            correctOrientation: true, //dreht das Bild, dass es richtig herum angezeigt wird
+            // targetHeight: 200, // Die Höhe des Bildes in Pixel
+            // targetWidth: 200 // Die Breite des Bildes in Pixel
         }
-        this.camera.getPicture(options).then(imageData => { // Das Bild wird gemacht
-            this.myphoto = 'data:image/jpeg;base64,' + imageData;
+        this.camera.getPicture(options).then(imageURI => { // Das Bild wird gemacht
+            this.myphoto = imageURI;
         }, (err) => {
             console.log("Fehler bei der Kamera:", err); // Falls etwas schief geht, wird der Error ausgegeben
         });
