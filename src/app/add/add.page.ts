@@ -31,7 +31,7 @@ export class AddPage implements OnInit {
         this.camera.getPicture(options).then(imageURI => { // Das Bild wird gemacht
             this.myphoto = imageURI;
         }, (err) => {
-            console.log("Fehler bei der Kamera:", err); // Falls etwas schief geht, wird der Error ausgegeben
+            console.log("Fehler bei der Kamera:", err); // Falls etwas schief geht, wird die Errormeldung ausgegeben
         });
     }
 }
