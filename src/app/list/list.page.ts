@@ -12,6 +12,8 @@ export class ListPage implements OnInit {
     public listItems: Array < { title: string;dateTime: string;content: string } > = [];
 
     constructor() {
+        // this.listItems.sort((a, b) => a - b);
+
         for (let i = 1; i < 11; i++) {
             this.listItems.push({
                 title: 'Überschrift ' + i,
