@@ -15,20 +15,20 @@
             <ion-card-title>Neue Notiz</ion-card-title>
         </ion-card-header>
         <!-- <ion-list> -->
-        <ion-list>
-            <ion-item lines="inset">
+        <ion-list lines="full">
+            <ion-item>
                 <ion-input required autofocus autocapitalize autocorrect spellcheck autocomplete clearInput placeholder="Titel"></ion-input>
             </ion-item>
-            <ion-item lines="inset">
-                <ion-input type="date" placeholder="Datum"></ion-input>
+            <ion-item>
+                <ion-datetime required display-format="DDD DD. MM. YYYY" placeholder="Datum"></ion-datetime>
             </ion-item>
-            <ion-item lines="inset">
-                <ion-input type="time" placeholder="Uhrzeit"></ion-input>
+            <ion-item>
+                <ion-datetime display-format="HH:mm" placeholder="Uhrzeit"></ion-datetime>
             </ion-item>
-            <ion-item lines="inset">
+            <ion-item>
                 <ion-textarea auto-grow autocapitalize autocorrect spellcheck autocomplete wrap="soft" clearInput placeholder="Notizen"></ion-textarea>
             </ion-item>
-            <ion-item lines="full">
+            <ion-item>
                 <ion-thumbnail slot="start">
                     <img src="{{ myphoto }}"  alt="testbild">
                 </ion-thumbnail>
