@@ -6,23 +6,23 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
     selector: 'app-root',
-    templateUrl: 'app.component.html'
+    templateUrl: 'app.component.html',
 })
 export class AppComponent {
     public appPages = [{
             title: 'Home',
             url: '/home',
-            icon: 'home'
+            icon: 'home',
         },
         {
             title: 'List',
             url: '/list',
-            icon: 'list'
+            icon: 'list',
         },
         {
             title: 'Add',
             url: '/add',
-            icon: 'add'
+            icon: 'add',
         }
     ];
 
@@ -31,6 +31,13 @@ export class AppComponent {
         private splashScreen: SplashScreen,
         private statusBar: StatusBar
     ) {
+        var appPagesIndex = [1, 3];
+
+        var tabPages = this.appPages.filter(function(value, index, array) {
+            return (index == 1);
+        });
+
+        console.log(tabPages);
         this.initializeApp();
     }
 
