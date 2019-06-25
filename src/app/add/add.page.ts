@@ -32,11 +32,11 @@ export class AddPage implements OnInit {
                 options.sourceType = 0;
                 options.saveToPhotoAlbum = false;
             }
-            this.camera.getPicture(options).then((imageData) => { // Das Bild wird gemacht
+            /*this.camera.getPicture(options).then((imageData) => { // Das Bild wird gemacht
                 this.myphoto = imageData;
             }, (err) => {
                 console.log("Fehler bei der Kamera:", err); // Falls etwas schief geht, wird die Errormeldung ausgegeben
-            });
+            });*/
 
             this.camera.getPicture(options).then((imageData) => {
                 this.myphoto = (<any>window).Ionic.WebView.convertFileSrc(imageData);
