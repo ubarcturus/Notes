@@ -39,10 +39,10 @@ export class AddPage implements OnInit {
             });*/
 
             this.camera.getPicture(options).then((imageData) => {
-                this.myphoto = (<any>window).Ionic.WebView.convertFileSrc(imageData);
-            }, (err) => {
-                alert("error "+JSON.stringify(err))
-            });
+                        this.myphoto = (<any>window).Ionic.WebView.convertFileSrc(imageData);
+        }, (err) => {
+            alert("error "+JSON.stringify(err))
+        });
 
     // this.myphoto = 'data:image/jpeg;base64,' + imageData;
 
