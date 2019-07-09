@@ -41,7 +41,7 @@ export class AppComponent {
         this.tabPages = this.appPages.filter(function(value, index, array) {
             return (index == 0 || index == 1 || index == 2);
         });
-        
+
         /**
          * create the path variable and fills the value from url without "/" in it
          * @param {any} var i = 0; i < this.tabPages.length; ++i
