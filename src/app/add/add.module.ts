@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddPage } from './add.page';
 
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 
 const routes: Routes = [{
     path: '',
@@ -19,7 +20,8 @@ const routes: Routes = [{
         CommonModule,
         FormsModule,
         IonicModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        IonicStorageModule.forRoot()
     ],
 
     providers: [Camera],

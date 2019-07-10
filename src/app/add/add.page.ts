@@ -10,7 +10,17 @@ import { Storage } from '@ionic/storage';
 
 export class AddPage implements OnInit {
 
+    uhr = "Uhr";
+    
     myphoto = "../../assets/icon/favicon.png";
+
+    addNote = {
+        title: "",
+        date: "",
+        time: "",
+        notes: "",
+        picture: ""
+    };
 
     ngOnInit() {}
 
@@ -47,6 +57,21 @@ export class AddPage implements OnInit {
             console.log("error "+JSON.stringify(err))
         })
             console.log(this.myphoto);
+    }
+
+    todoAddNote() {
+        this.addNote.picture = this.myphoto;
+        console.log(this.addNote);
+    }
+
+    formInput:any = {
+        input1: "",
+        input2: ""
+    };
+
+    testData(){
+    console.log("Input 1: " + this.formInput.input1);
+    console.log("Input 2: " + this.formInput.input2);
     }
 }
 
