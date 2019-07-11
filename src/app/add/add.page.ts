@@ -10,8 +10,6 @@ import { Storage } from '@ionic/storage';
 
 export class AddPage implements OnInit {
 
-    uhr = "Uhr";
-    
     myphoto = "../../assets/icon/favicon.png";
 
     addNote = {
@@ -19,16 +17,17 @@ export class AddPage implements OnInit {
         date: "",
         time: "",
         notes: "",
-        picture: ""
+        picture: "",
     };
 
     ngOnInit() {}
 
     constructor(
         private camera: Camera,
-        private storage: Storage) {}
+        private storage: Storage
+    ) {}
 
-    foto(source) {
+    picture(source) {
             const options: CameraOptions = { // Einstellungen für die Kamera: https://github.com/apache/cordova-plugin-camera#cameracameraoptions--object
                 sourceType: 1, // Quelle des Bildes (Fotogalerie, 0), (Kamera, 1), (Fotoordner, 2)
                 quality: 100, // Die Qualität gibt an, wie scharf das Bild ist. Bis Stufe 70 sollte man keine Änderungen wahrnehmen können
@@ -59,12 +58,18 @@ export class AddPage implements OnInit {
             console.log(this.myphoto);
     }
 
-    todoAddNote() {
+    submitAddNote() {
         this.addNote.picture = this.myphoto;
         console.log(this.addNote);
+
+        this.storage.get("allNotes").then((res) => {
+        res.push(this.addNote);
+        this.storage.set("allNotes", res);
+        console.log(res)
+        })
     }
 
-    formInput:any = {
+    /*formInput:any = {
         input1: "",
         input2: ""
     };
@@ -72,7 +77,7 @@ export class AddPage implements OnInit {
     testData(){
     console.log("Input 1: " + this.formInput.input1);
     console.log("Input 2: " + this.formInput.input2);
-    }
+    }*/
 }
 
     /*this.myphoto = 'data:image/jpeg;base64,' + imageData;

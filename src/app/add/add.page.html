@@ -16,12 +16,12 @@
         </ion-card-header>
         <!-- <ion-list> -->
         <ion-list lines="full">
-            <form (ngSubmit)="todoAddNote()">
+            <form (ngSubmit)="submitAddNote()">
                 <ion-item>
                     <ion-input [(ngModel)]="addNote.title" name="title" required autofocus autocapitalize autocorrect spellcheck clearInput placeholder="Titel"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-datetime [(ngModel)]="addNote.date" name="date" required display-format="DDD DD. MM. YYYY, HH:mm" placeholder="Datum und Zeit"></ion-datetime>
+                    <ion-datetime [(ngModel)]="addNote.date" name="date" required display-format="DDD DD. MM. YYYY" placeholder="Datum"></ion-datetime>
                 </ion-item>
                 <ion-item>
                     <ion-datetime [(ngModel)]="addNote.time" name="time" display-format="HH:mm" placeholder="Uhrzeit"></ion-datetime>
@@ -33,26 +33,26 @@
                     <ion-thumbnail slot="start">
                         <img src="{{ myphoto }}"  alt="testbild">
                     </ion-thumbnail>
-                    <ion-button type="button" (click)="foto('picture')" fill="outline">Foto</ion-button>
-                    <ion-button type="button" (click)="foto('gallery')" fill="outline">Galerie</ion-button>
+                    <ion-button type="button" (click)="picture('photo')" fill="outline">Foto</ion-button>
+                    <ion-button type="button" (click)="picture('gallery')" fill="outline">Galerie</ion-button>
                 </ion-item>
                 <ion-item lines="none">
                     <ion-button type="submit" expand="block" fill="solid">Notiz speichern</ion-button>
                 </ion-item>
             </form>
         </ion-list>
-        <p><strong>Einfacher Forminput</strong></p>
+        <!-- <p><strong>Einfacher Forminput</strong></p>
         <form (ngSubmit)="testData()">
-            <!-- Funktion, die beim submit aufgerufen werden -->
+            Funktion, die beim submit aufgerufen werden
             <ion-item>
                 <ion-label position="floating">Titel:</ion-label>
-                <ion-input type="text" [(ngModel)]="formInput.input1" name="test1"></ion-input> <!-- Durch ngModel werden die Daten automatisch in die "formInput"-Variable im TS gespeichert -->
+                <ion-input type="text" [(ngModel)]="formInput.input1" name="test1"></ion-input> Durch ngModel werden die Daten automatisch in die "formInput"-Variable im TS gespeichert
             </ion-item>
             <ion-item>
                 <ion-label position="stacked">Titel:</ion-label>
                 <ion-input type="text" [(ngModel)]="formInput.input2" name="test1"></ion-input>
             </ion-item>
-            <ion-button expand="block" type="submit">Senden</ion-button> <!-- Senden Button -->
-        </form>
+            <ion-button expand="block" type="submit">Senden</ion-button> Senden Button
+        </form> -->
     </ion-card>
 </ion-content>

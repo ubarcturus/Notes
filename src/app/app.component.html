@@ -20,7 +20,7 @@
         </ion-menu>
         <ion-tabs main>
             <ion-tab-bar slot="bottom">
-                <ion-tab-button  [tab]="p.path" *ngFor="let p of tabPages">
+                <ion-tab-button [tab]="p.path" *ngFor="let p of tabPages">
                     <ion-icon [name]="p.icon"></ion-icon>
                     <ion-label>{{p.title}}</ion-label>
                 </ion-tab-button>
