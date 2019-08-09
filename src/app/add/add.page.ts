@@ -64,6 +64,8 @@ export class AddPage implements OnInit {
 
         this.storage.get("allNotes").then((res) => {
         res.push(this.addNote);
+        console.log(res);
+
         this.storage.set("allNotes", res);
         console.log(res)
         })

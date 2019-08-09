@@ -17,8 +17,15 @@ export class ListPage implements OnInit {
     } > = [];
 
     constructor(
-        public storage: Storage
+        public storage: Storage,
+        sortedNotes = null,
     ) {
+
+        this.storage.get("allNotes").then((res) => {
+            res.sort((a, b) => a.dateTime - b.dateTime);
+            sortedNotes = res;
+        });
+
 
         for (let i = 1; i < 11; i++) {
             this.listItems.push({
