@@ -11,6 +11,18 @@
 
 <ion-content>
     <ion-list>
+        <ion-item *ngFor="let l of sortedNotes">
+            <ion-thumbnail slot="start">
+                <ion-img>{{l.picture}}</ion-img>
+            </ion-thumbnail>
+            <ion-label>
+                <h2>{{l.title}}</h2>
+                <h3>{{l.date}} {{l.time}}</h3>
+                <p>{{l.notes}}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <!-- <ion-list>
         <ion-item *ngFor="let l of listItems">
             <ion-thumbnail slot="start">
                 <ion-img src="/assets/shapes.svg"></ion-img>
@@ -21,7 +33,7 @@
                 <p>{{l.content}}</p>
             </ion-label>
         </ion-item>
-    </ion-list>
+    </ion-list> -->
     <div *ngIf="selectedItem" padding>
         You navigated here from <b>{{selectedItem.title }}</b>
     </div>
