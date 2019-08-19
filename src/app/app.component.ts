@@ -62,12 +62,13 @@ export class AppComponent {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
         });
-        
+
+        // this.storage.clear();
+
         this.storage.get("allNotes").then((res) => {
             if (res == null) {
                 this.storage.set("allNotes", []);
             }
         })
-
     }
 }
