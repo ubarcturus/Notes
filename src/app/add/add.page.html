@@ -11,8 +11,8 @@
 
 <ion-content>
     <!-- <ion-list> -->
-    <ion-list>
-        <form (ngSubmit)="submitAddNote()">
+    <form (ngSubmit)="submitAddNote()">
+        <ion-list lines="full">
             <ion-item>
                 <ion-input [(ngModel)]="addNote.title" name="title" required autofocus autocapitalize autocorrect spellcheck clearInput placeholder="Titel"></ion-input>
             </ion-item>
@@ -27,17 +27,14 @@
             </ion-item>
             <ion-item>
                 <ion-thumbnail slot="start">
-                    <img src="{{ myphoto }}"  alt="testbild">
+                    <img src="{{myphoto}}"  alt="testbild">
                 </ion-thumbnail>
                 <ion-button type="button" (click)="picture('photo')" fill="outline">Foto</ion-button>
                 <ion-button type="button" (click)="picture('gallery')" fill="outline">Galerie</ion-button>
             </ion-item>
-            <ion-item-divider></ion-item-divider>
-            <ion-item>
-                <ion-button type="submit" expand="block" fill="solid">Notiz speichern</ion-button>
-            </ion-item>
-        </form>
-    </ion-list>
+        </ion-list>
+        <ion-button type="submit" expand="block" fill="solid">Notiz speichern</ion-button>
+    </form>
     <!-- <p><strong>Einfacher Forminput</strong></p>
         <form (ngSubmit)="testData()">
             Funktion, die beim submit aufgerufen werden

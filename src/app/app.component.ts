@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module'
     selector: 'app-root',
     templateUrl: 'app.component.html',
 })
+
 export class AppComponent {
     public appPages = [{
             title: 'Home',

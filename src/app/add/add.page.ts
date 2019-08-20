@@ -10,14 +10,14 @@ import { Storage } from '@ionic/storage';
 
 export class AddPage implements OnInit {
 
-    myphoto = "../../assets/shapes.svg";
-
-    addNote = {
+	public myphoto = "../../assets/shapes.svg";
+	public addNote = {
         title: "",
         dateTime: "",
         // time: "",
         notes: "",
         picture: "",
+        niceDateTime: "",
     };
 
     ngOnInit() {}
@@ -60,6 +60,7 @@ export class AddPage implements OnInit {
 
     submitAddNote() {
         this.addNote.picture = this.myphoto;
+        this.addNote.niceDateTime = datum + " " + uhrzeit + " Uhr";
         console.log(this.addNote);
 
         this.storage.get("allNotes").then((res) => {
@@ -68,21 +69,7 @@ export class AddPage implements OnInit {
 
             this.storage.set("allNotes", res);
         })
-
-        this.storage.get("allNotes").then((res) => {
-            console.log(res);
-        })
     }
-
-    /*formInput:any = {
-        input1: "",
-        input2: ""
-    };
-
-    testData(){
-    console.log("Input 1: " + this.formInput.input1);
-    console.log("Input 2: " + this.formInput.input2);
-    }*/
 }
 
 /*this.myphoto = 'data:image/jpeg;base64,' + imageData;
