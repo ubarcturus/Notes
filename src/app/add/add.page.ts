@@ -10,8 +10,8 @@ import { Storage } from '@ionic/storage';
 
 export class AddPage implements OnInit {
 
-	public myphoto = "../../assets/shapes.svg";
-	public addNote = {
+    public myphoto = "../../assets/shapes.svg";
+    public addNote = {
         title: "",
         dateTime: "",
         // time: "",
@@ -19,13 +19,16 @@ export class AddPage implements OnInit {
         picture: "",
         niceDateTime: "",
     };
+    public datum = new Date(this.addNote.dateTime).getDate();
+    public uhrzeit = new Date(this.addNote.dateTime).getTime();
 
     ngOnInit() {}
 
     constructor(
         private camera: Camera,
-        private storage: Storage
+        private storage: Storage,
     ) {}
+
 
     picture(source) {
         const options: CameraOptions = { // Einstellungen für die Kamera: https://github.com/apache/cordova-plugin-camera#cameracameraoptions--object
@@ -60,10 +63,30 @@ export class AddPage implements OnInit {
 
     submitAddNote() {
         this.addNote.picture = this.myphoto;
-        this.addNote.niceDateTime = datum + " " + uhrzeit + " Uhr";
+
         console.log(this.addNote);
 
         this.storage.get("allNotes").then((res) => {
+            var tag = new Date(this.addNote.dateTime).getDate();
+            var wochentagZahl = new Date(this.addNote.dateTime).getDay();
+            var wochentagWordArray = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+            var wochentagWord = wochentagWordArray[wochentagZahl];
+            var monat = new Date(this.addNote.dateTime).getMonth();
+            var jahr = new Date(this.addNote.dateTime).getFullYear();
+            var datum = wochentagWord + ", " + tag + "." + (monat + 1) + "." + jahr;
+
+            var minute = new Date(this.addNote.dateTime).getMinutes();
+            var minute02;
+            if (minute < 10) {
+                minute02 = "0" + minute
+            } else {
+                minute02 = minute
+            };
+            var stunde = new Date(this.addNote.dateTime).getHours();
+            var uhrzeit = stunde + ":" + minute02;
+
+            this.addNote.niceDateTime = datum + " " + uhrzeit + " Uhr";
+
             res.push(this.addNote);
             console.log(res);
 
