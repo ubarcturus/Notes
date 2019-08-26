@@ -29,7 +29,6 @@ export class AddPage implements OnInit {
         private storage: Storage,
     ) {}
 
-
     picture(source) {
         const options: CameraOptions = { // Einstellungen für die Kamera: https://github.com/apache/cordova-plugin-camera#cameracameraoptions--object
             sourceType: 1, // Quelle des Bildes (Fotogalerie, 0), (Kamera, 1), (Fotoordner, 2)

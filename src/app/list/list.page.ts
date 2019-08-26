@@ -23,7 +23,7 @@ export class ListPage implements OnInit {
                 console.log(res);
 
             } else {
-                res.sort((a, b) => a.dateTime - b.dateTime);
+                res.sort(function(a, b){return a.dateTime - b.dateTime});
                 this.sortedNotes = res;
             }
         })
@@ -32,6 +32,10 @@ export class ListPage implements OnInit {
             this.sortedNotes.push();
         }
     };
+
+    delNote() {
+        var timeStamp = this.sortedNotes.
+    }
 
     ngOnInit() {}
 
