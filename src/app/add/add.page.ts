@@ -14,15 +14,11 @@ export class AddPage implements OnInit {
     public addNote = {
         title: "",
         dateTime: "",
-        // time: "",
         notes: "",
         picture: "",
         niceDateTime: "",
+        id: 0,
     };
-    public datum = new Date(this.addNote.dateTime).getDate();
-    public uhrzeit = new Date(this.addNote.dateTime).getTime();
-
-    ngOnInit() {}
 
     constructor(
         private camera: Camera,
@@ -86,12 +82,16 @@ export class AddPage implements OnInit {
 
             this.addNote.niceDateTime = datum + " " + uhrzeit + " Uhr";
 
+            this.addNote.id = Date.now();
+
             res.push(this.addNote);
             console.log(res);
 
             this.storage.set("allNotes", res);
         })
     }
+    
+    ngOnInit() {}
 }
 
 /*this.myphoto = 'data:image/jpeg;base64,' + imageData;

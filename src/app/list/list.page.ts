@@ -20,11 +20,12 @@ export class ListPage implements OnInit {
             if ((res == null) || (res == undefined)) {
                 alert("Du hast noch keine Notizen!");
                 // document.body. = "Du hast noch keine Notizen!";
-                console.log(res);
+                // console.log(res);
 
             } else {
-                res.sort(function(a, b){return a.dateTime - b.dateTime});
+                res.sort(function(a, b) { return a.dateTime - b.dateTime });
                 this.sortedNotes = res;
+                console.log(this.sortedNotes);
             }
         })
 
@@ -33,8 +34,8 @@ export class ListPage implements OnInit {
         }
     };
 
-    delNote() {
-        var timeStamp = this.sortedNotes.
+    delNote(id) {
+        console.log(id);
     }
 
     ngOnInit() {}

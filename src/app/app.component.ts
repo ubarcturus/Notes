@@ -30,7 +30,7 @@ export class AppComponent {
         }
     ];
 
-    tabPages = new Array();
+    tabPages = [];
 
     constructor(
         private platform: Platform,
@@ -42,8 +42,8 @@ export class AppComponent {
          * creates a new array filled with all array elements that have the index specified in return 
          * @param {any, number, object} function(value, index, array)
          */
-        this.tabPages = this.appPages.filter(function(value, index, array) {
-            return (index == 0 || index == 1 || index == 2);
+        this.tabPages = this.appPages.filter((value, index, array) => {
+            return(index != null);
         });
 
         /**
