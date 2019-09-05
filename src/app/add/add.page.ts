@@ -90,7 +90,7 @@ export class AddPage implements OnInit {
             this.storage.set("allNotes", res);
         })
     }
-    
+
     ngOnInit() {}
 }
 

@@ -17,10 +17,9 @@ export class ListPage implements OnInit {
         public storage: Storage,
     ) {
         this.storage.get("allNotes").then((res) => {
-            if ((res == null) || (res == undefined)) {
+            if ((res == null) || (res == undefined) || (res.length == 0)) {
                 alert("Du hast noch keine Notizen!");
-                // document.body. = "Du hast noch keine Notizen!";
-                // console.log(res);
+                document.getElementsByTagName("Du hast noch keine Notizen!");
 
             } else {
                 res.sort(function(a, b) { return a.dateTime - b.dateTime });
@@ -35,6 +34,11 @@ export class ListPage implements OnInit {
     };
 
     delNote(id) {
+        this.storage.get("allNotes").then((res) => {
+            res.splice(res.indexOf(id), 1);
+            this.storage.set("allNotes", res);
+        })
+
         console.log(id);
     }
 
