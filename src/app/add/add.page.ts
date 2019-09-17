@@ -91,6 +91,10 @@ export class AddPage implements OnInit {
         })
     }
 
+    editNote(){
+        
+    }
+
     ngOnInit() {}
 }
 

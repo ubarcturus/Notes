@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { ModalPage } from '../modal/modal.page';
 
 @Component({
     selector: 'app-list',
@@ -40,6 +41,13 @@ export class ListPage implements OnInit {
         })
 
         console.log(id);
+    }
+
+    editNote(id) {
+        this.storage.get("allNotes").then((res) => {
+            res.splice(res.indexOf(id), 1);
+            this.storage.set("allNotes", res);
+        })
     }
 
     ngOnInit() {}

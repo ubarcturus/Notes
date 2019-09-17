@@ -43,7 +43,7 @@ export class AppComponent {
          * @param {any, number, object} function(value, index, array)
          */
         this.tabPages = this.appPages.filter((value, index, array) => {
-            return(index != null);
+            return (index != null);
         });
 
         /**
