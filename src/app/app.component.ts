@@ -27,6 +27,11 @@ export class AppComponent {
             title: 'Hinzufügen',
             url: '/add',
             icon: 'add',
+        },
+        {
+            title: 'test1',
+            url: '/test1',
+            icon: 'add',
         }
     ];
 

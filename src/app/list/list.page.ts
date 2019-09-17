@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
+
 import { ModalPage } from '../modal/modal.page';
 
 @Component({
@@ -41,14 +42,36 @@ export class ListPage implements OnInit {
         })
 
         console.log(id);
-    }
+    };
 
-    editNote(id) {
+    /*editNote(id) {
         this.storage.get("allNotes").then((res) => {
             res.splice(res.indexOf(id), 1);
             this.storage.set("allNotes", res);
         })
-    }
+    };*/
+
+    /*editNote(id) {
+        let currentModal = null;
+        const controller = document.querySelector('ion-modal-controller');
+        const button = document.querySelector('ion-button');
+        button.addEventListener('click', createModal);
+
+        function createModal() {
+            controller.create({
+                component: 'modal-content'
+            }).then(modal => {
+                modal.present();
+                currentModal = modal;
+            });
+        }
+
+        function dismissModal() {
+            if (currentModal) {
+                currentModal.dismiss().then(() => { currentModal = null; });
+            }
+        }
+    };*/
 
     ngOnInit() {}
 
