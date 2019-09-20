@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
-
+import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 
 @Component({
@@ -17,6 +17,7 @@ export class ListPage implements OnInit {
 
     constructor(
         public storage: Storage,
+        private modalCtlr: ModalController,
     ) {
         this.storage.get("allNotes").then((res) => {
             if ((res == null) || (res == undefined) || (res.length == 0)) {
@@ -28,11 +29,11 @@ export class ListPage implements OnInit {
                 this.sortedNotes = res;
                 console.log(this.sortedNotes);
             }
-        })
+        });
 
         for (let i = 0; i < this.sortedNotes.length; i++) {
             this.sortedNotes.push();
-        }
+        };
     };
 
     delNote(id) {
@@ -42,6 +43,13 @@ export class ListPage implements OnInit {
         })
 
         console.log(id);
+    };
+
+    async presentModal(id) {
+        let modal = await this.modalCtlr.create({
+            component: ModalPage
+        });
+        return await modal.present();
     };
 
     /*editNote(id) {

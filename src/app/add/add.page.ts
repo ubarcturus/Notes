@@ -54,7 +54,7 @@ export class AddPage implements OnInit {
         (err) => {console.log("error "+JSON.stringify(err))})*/
 
         console.log(this.myphoto);
-    }
+    };
 
     submitAddNote() {
         this.addNote.picture = this.myphoto;
@@ -89,11 +89,7 @@ export class AddPage implements OnInit {
 
             this.storage.set("allNotes", res);
         })
-    }
-
-    editNote(){
-        
-    }
+    };
 
     ngOnInit() {}
 }

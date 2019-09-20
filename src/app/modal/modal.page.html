@@ -1,9 +1,30 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>modal</ion-title>
+        <ion-title>Editieren</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-	irgendetwas
+    <ion-button expand="block" (click)="dismiss()">irgendein Text</ion-button>
+    <form (ngSubmit)="submitAddNote()">
+        <ion-list lines="full">
+            <ion-item>
+                <ion-input [(ngModel)]="addNote.title" name="title" required autofocus autocapitalize autocorrect spellcheck clearInput placeholder="Titel">{{l.title}}</ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-datetime [(ngModel)]="addNote.dateTime" name="dateTime" required display-format="DDD DD. MM. YYYY, HH:mm" placeholder="Datum und Uhrzeit">{{l.niceDateTime}}</ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-textarea [(ngModel)]="addNote.notes" name="notes" auto-grow autocapitalize autocorrect spellcheck wrap="soft" clearInput placeholder="Notizen">{{l.notes}}</ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail slot="start">
+                    <img src="{{myphoto}}"  alt="testbild">
+                </ion-thumbnail>
+                <ion-button type="button" (click)="picture('photo')" fill="outline">Foto</ion-button>
+                <ion-button type="button" (click)="picture('gallery')" fill="outline">Galerie</ion-button>
+            </ion-item>
+        </ion-list>
+        <ion-button type="submit" expand="block" fill="solid">Notiz speichern</ion-button>
+    </form>
 </ion-content>
