@@ -19,13 +19,13 @@ export class ListPage implements OnInit {
         public storage: Storage,
         private modalCtlr: ModalController,
     ) {
-        this.storage.get("allNotes").then((res) => {
-            if ((res == null) || (res == undefined) || (res.length == 0)) {
-                alert("Du hast noch keine Notizen!");
-                document.getElementsByTagName("Du hast noch keine Notizen!");
+        this.storage.get('allNotes').then((res) => {
+            if ((res === null) || (res === undefined) || (res.length === 0)) {
+                alert('Du hast keine Notizen!');
+                document.getElementsByTagName('Du hast keine Notizen!');
 
             } else {
-                res.sort(function(a, b) { return a.dateTime - b.dateTime });
+                res.sort(function(a, b) { return parseInt(a.dateTime, 10) - parseInt(b.dateTime, 10) });
                 this.sortedNotes = res;
                 console.log(this.sortedNotes);
             }
@@ -37,49 +37,22 @@ export class ListPage implements OnInit {
     };
 
     delNote(id) {
-        this.storage.get("allNotes").then((res) => {
+        this.storage.get('allNotes').then((res) => {
             res.splice(res.indexOf(id), 1);
-            this.storage.set("allNotes", res);
+            this.storage.set('allNotes', res);
         })
 
         console.log(id);
+
+        location.reload();
     };
 
-    async presentModal(id) {
+    async presentModal() {
         let modal = await this.modalCtlr.create({
             component: ModalPage
         });
         return await modal.present();
     };
-
-    /*editNote(id) {
-        this.storage.get("allNotes").then((res) => {
-            res.splice(res.indexOf(id), 1);
-            this.storage.set("allNotes", res);
-        })
-    };*/
-
-    /*editNote(id) {
-        let currentModal = null;
-        const controller = document.querySelector('ion-modal-controller');
-        const button = document.querySelector('ion-button');
-        button.addEventListener('click', createModal);
-
-        function createModal() {
-            controller.create({
-                component: 'modal-content'
-            }).then(modal => {
-                modal.present();
-                currentModal = modal;
-            });
-        }
-
-        function dismissModal() {
-            if (currentModal) {
-                currentModal.dismiss().then(() => { currentModal = null; });
-            }
-        }
-    };*/
 
     ngOnInit() {}
 
